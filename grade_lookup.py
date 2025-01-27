@@ -9,7 +9,7 @@ def get_grade(score):
         - B (80-89): (80 - 50) // 10 = 3
         - C (70-79): (70 - 50) // 10 = 2
         - D (60-69): (60 - 50) // 10 = 1
-        - F (0-59): (0 - 50) // 10 = -5, clamped to 0 by max()
+        - F (0-59): (0 - 50) // 10 = clamped to 0 by max()
         
     Args:
         score (int): Exam score between 0 and 100.
