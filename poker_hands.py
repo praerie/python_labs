@@ -92,7 +92,16 @@ def three_of_a_kind(cards):
     if not count_cards(cards):
         return False
     
-    # return True if hand contains exactly 5 cards with three of one rank
+    # create a dictionary to store counts of each rank
+    rank_counts = {}
+    
+    # count occurrences of each rank using .get(key, default)
+    for rank, _ in cards:
+        rank_counts[rank] = rank_counts.get(rank, 0) + 1
+        
+    # return True if hand contains 3 cards of one rank,
+    # and 1 of two different ranks (excluding full house and four of a kind)
+    return sorted(rank_counts.values()) == [1, 1, 3]
 
 def two_pair(cards):
     """Returns true if hand has two each of two different ranks."""
