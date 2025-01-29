@@ -49,7 +49,11 @@ def full_house(cards):
 
 def flush(cards):
     """Returns true if hand has five cards of the same suit."""
-    pass
+    # create a set of unique suits from list of card tuples
+    suits = {suit for _, suit in cards}
+    
+    # return True if there are 5 cards of the same suit
+    return len(cards) == 5 and len(suits) == 1
 
 def straight(cards):
     """Returns true if hand has five ranks in a row."""
@@ -76,11 +80,12 @@ def main():
     hand_a = [(2, "s"), (4, "s"), (6, "s"), (5, "s"), (3, "s")]
     hand_b = [(7, "c"), (7, "h"), (7, "d"), (7, "s"), (3, "c")]
     hand_c = [(12, "d"), (12, "h"), (12, "s"), (9, "h"), (9, "d")]
+    hand_d = [(11, "s"), (7, "s"), (2, "s"), (8, "s"), (3, "s")]
     
     print(f"straight flush: {hand_a}, {straight_flush(hand_a)}")
     print(f"four of a kind: {hand_b}, {four_of_a_kind(hand_b)}")
     print(f"full house: {hand_c}, {full_house(hand_c)}")
-    print(f"flush: ")
+    print(f"flush: {hand_d}, {flush(hand_d)}")
     print(f"straight: ")
     print(f"three of a kind: ")
     print(f"two pair: ")
