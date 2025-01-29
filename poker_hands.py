@@ -7,9 +7,6 @@ def make_deck():
 
 def straight_flush(cards):
     """Returns true if hand has five ranks in a row of all the same suit."""
-    if len(cards) != 5:
-        return False # must be 5 cards
-    
     # create a set of unique suits from list of card tuples
     suits = {suit for _, suit in cards}
     
@@ -20,8 +17,8 @@ def straight_flush(cards):
     ranks = [rank for rank, _ in cards]
     ranks.sort()
     
-    # return True if ranks form consecutive sequence
-    all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
+    # return True if 5 cards have ranks forming a consecutive sequence
+    return len(cards) == 5 and all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
 
 def four_of_a_kind(cards):
     """Returns true if hand has four of the same rank."""
