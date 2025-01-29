@@ -5,8 +5,16 @@ def make_deck():
     
     return [(rank, suit) for suit in suits for rank in ranks]
 
+def count_cards(cards):
+    # return True if hand contains exactly 5 cards
+    return len(cards) == 5 
+
 def straight_flush(cards):
     """Returns true if hand has five ranks in a row of all the same suit."""
+    # verify that card contains exactly 5 cards
+    if not count_cards(cards):
+        return False
+    
     # create a set of unique suits from list of card tuples
     suits = {suit for _, suit in cards}
     
@@ -17,11 +25,15 @@ def straight_flush(cards):
     ranks = [rank for rank, _ in cards]
     ranks.sort()
     
-    # return True if the hand contains exactly 5 cards with consecutive ranks
-    return len(cards) == 5 and all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
+    # return True if hand has consecutive ranks
+    return all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
 
 def four_of_a_kind(cards):
     """Returns true if hand has four of the same rank."""
+    # verify that card contains exactly 5 cards
+    if not count_cards(cards):
+        return False
+    
     # create a dictionary to store counts of each rank
     rank_counts = {}
     
@@ -29,11 +41,15 @@ def four_of_a_kind(cards):
     for rank, _ in cards:
         rank_counts[rank] = rank_counts.get(rank, 0) + 1
     
-    # return True if the hand contains exactly 5 cards with any rank appearing exactly 4 times
-    return len(cards) == 5 and 4 in rank_counts.values()
+    # return True if any rank appears exactly 4 times
+    return 4 in rank_counts.values()
 
 def full_house(cards):
     """Returns true if hand has three of one rank and two of another."""
+    # verify that card contains exactly 5 cards
+    if not count_cards(cards):
+        return False
+    
     # create a dictionary to store counts of each rank
     rank_counts = {}
     
@@ -41,38 +57,58 @@ def full_house(cards):
     for rank, _ in cards:
         rank_counts[rank] = rank_counts.get(rank, 0) + 1
         
-    # return True if the hand contains exactly 5 cards with 2 distinct ranks with counts 2 and 3
-    return len(cards) == 5 and len(rank_counts) == 2 and sorted(rank_counts.values()) == [2, 3]
+    # return True if hand contains 2 distinct ranks with counts 2 and 3
+    return len(rank_counts) == 2 and sorted(rank_counts.values()) == [2, 3]
 
 def flush(cards):
     """Returns true if hand has five cards of the same suit."""
+    # verify that card contains exactly 5 cards
+    if not count_cards(cards):
+        return False
+    
     # create a set of unique suits from list of card tuples
     suits = {suit for _, suit in cards}
     
-    # return True if the hand contains exactly 5 cards of the same suit
-    return len(cards) == 5 and len(suits) == 1
+    # return True if each card shares the same suit
+    return len(suits) == 1
 
 def straight(cards):
     """Returns true if hand has five ranks in a row."""
+    # verify that card contains exactly 5 cards
+    if not count_cards(cards):
+        return False
+    
     # unpack and sort ranks
     ranks = [rank for rank, _ in cards]
     ranks.sort()
     
-    # return True if the hand contains exactly 5 cards with consecutive ranks
-    return len(cards) == 5 and all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
+    # return True if hand has consecutive ranks
+    return all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
 
 def three_of_a_kind(cards):
     """Returns true if hand has three of one rank,
     but not a full house nor four of a kind."""
-    pass
+    # verify that card contains exactly 5 cards
+    if not count_cards(cards):
+        return False
+    
+    # return True if hand contains exactly 5 cards with three of one rank
 
 def two_pair(cards):
     """Returns true if hand has two each of two different ranks."""
+    # verify that card contains exactly 5 cards
+    if not count_cards(cards):
+        return False
+    
     pass
 
 def pair(cards):
     """Returns true if hand has two of the same rank,
     but not two pair, three, or four of a kind."""
+    # verify that card contains exactly 5 cards
+    if not count_cards(cards):
+        return False
+    
     pass
           
 def main():
