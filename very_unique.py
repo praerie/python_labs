@@ -1,6 +1,3 @@
-# Write and test a function removeDuplicates(unique_list)
-# that removes duplicate values from a list.
-
 def remove_duplicates(unique_list):
     """
     Removes duplicate items from the given list.
