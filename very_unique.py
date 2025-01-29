@@ -29,13 +29,13 @@ def main():
     hobbies = ["archery", "archery", "archery", "knitting", "language learning", "mountain biking"]
 
     print("original list of herbs:", herbs)
-    print("post duplicate removal:", removeDuplicates(herbs), "\n")
+    print("post duplicate removal:", remove_duplicates(herbs), "\n")
 
     print("original list of studios", studios)
-    print("post duplicate removal:", removeDuplicates(studios), "\n")
+    print("post duplicate removal:", remove_duplicates(studios), "\n")
 
     print("original list of hobbies:", hobbies)
-    print("post duplicate removal:", removeDuplicates(hobbies))
+    print("post duplicate removal:", remove_duplicates(hobbies))
 
 if __name__ == "__main__":
     main()
