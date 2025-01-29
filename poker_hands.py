@@ -17,7 +17,7 @@ def straight_flush(cards):
     ranks = [rank for rank, _ in cards]
     ranks.sort()
     
-    # return True if 5 cards have ranks forming a consecutive sequence
+    # return True if the hand contains exactly 5 cards with consecutive ranks
     return len(cards) == 5 and all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
 
 def four_of_a_kind(cards):
@@ -29,8 +29,8 @@ def four_of_a_kind(cards):
     for rank, _ in cards:
         rank_counts[rank] = rank_counts.get(rank, 0) + 1
     
-    # return True if any rank appears exactly 4 times
-    return 4 in rank_counts.values()
+    # return True if the hand contains exactly 5 cards with any rank appearing exactly 4 times
+    return len(cards) == 5 and 4 in rank_counts.values()
 
 def full_house(cards):
     """Returns true if hand has three of one rank and two of another."""
@@ -41,20 +41,25 @@ def full_house(cards):
     for rank, _ in cards:
         rank_counts[rank] = rank_counts.get(rank, 0) + 1
         
-    # return True if there are 2 distinct ranks with counts 2 and 3
-    return len(rank_counts) == 2 and sorted(rank_counts.values()) == [2, 3]
+    # return True if the hand contains exactly 5 cards with 2 distinct ranks with counts 2 and 3
+    return len(cards) == 5 and len(rank_counts) == 2 and sorted(rank_counts.values()) == [2, 3]
 
 def flush(cards):
     """Returns true if hand has five cards of the same suit."""
     # create a set of unique suits from list of card tuples
     suits = {suit for _, suit in cards}
     
-    # return True if there are 5 cards of the same suit
+    # return True if the hand contains exactly 5 cards of the same suit
     return len(cards) == 5 and len(suits) == 1
 
 def straight(cards):
     """Returns true if hand has five ranks in a row."""
-    pass
+    # unpack and sort ranks
+    ranks = [rank for rank, _ in cards]
+    ranks.sort()
+    
+    # return True if the hand contains exactly 5 cards with consecutive ranks
+    return len(cards) == 5 and all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
 
 def three_of_a_kind(cards):
     """Returns true if hand has three of one rank,
