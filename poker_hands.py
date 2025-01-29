@@ -11,7 +11,7 @@ def count_cards(cards):
 
 def straight_flush(cards):
     """Returns true if hand has five ranks in a row of all the same suit."""
-    # verify that card contains exactly 5 cards
+    # verify that hand contains exactly 5 cards
     if not count_cards(cards):
         return False
     
@@ -30,7 +30,7 @@ def straight_flush(cards):
 
 def four_of_a_kind(cards):
     """Returns true if hand has four of the same rank."""
-    # verify that card contains exactly 5 cards
+    # verify that hand contains exactly 5 cards
     if not count_cards(cards):
         return False
     
@@ -46,7 +46,7 @@ def four_of_a_kind(cards):
 
 def full_house(cards):
     """Returns true if hand has three of one rank and two of another."""
-    # verify that card contains exactly 5 cards
+    # verify that hand contains exactly 5 cards
     if not count_cards(cards):
         return False
     
@@ -62,7 +62,7 @@ def full_house(cards):
 
 def flush(cards):
     """Returns true if hand has five cards of the same suit."""
-    # verify that card contains exactly 5 cards
+    # verify that hand contains exactly 5 cards
     if not count_cards(cards):
         return False
     
@@ -74,7 +74,7 @@ def flush(cards):
 
 def straight(cards):
     """Returns true if hand has five ranks in a row."""
-    # verify that card contains exactly 5 cards
+    # verify that hand contains exactly 5 cards
     if not count_cards(cards):
         return False
     
@@ -88,7 +88,7 @@ def straight(cards):
 def three_of_a_kind(cards):
     """Returns true if hand has three of one rank,
     but not a full house nor four of a kind."""
-    # verify that card contains exactly 5 cards
+    # verify that hand contains exactly 5 cards
     if not count_cards(cards):
         return False
     
@@ -96,7 +96,7 @@ def three_of_a_kind(cards):
 
 def two_pair(cards):
     """Returns true if hand has two each of two different ranks."""
-    # verify that card contains exactly 5 cards
+    # verify that hand contains exactly 5 cards
     if not count_cards(cards):
         return False
     
@@ -105,7 +105,7 @@ def two_pair(cards):
 def pair(cards):
     """Returns true if hand has two of the same rank,
     but not two pair, three, or four of a kind."""
-    # verify that card contains exactly 5 cards
+    # verify that hand contains exactly 5 cards
     if not count_cards(cards):
         return False
     
