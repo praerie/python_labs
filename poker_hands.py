@@ -21,7 +21,7 @@ def straight_flush(cards):
     ranks.sort()
     
     # return True if ranks form consecutive sequence
-    return all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
+    all(ranks[i] + 1 == ranks[i + 1] for i in range(len(ranks) - 1))
 
 def four_of_a_kind(cards):
     """Returns true if hand has four of the same rank."""
@@ -77,19 +77,23 @@ def main():
     deck = make_deck()
     print(f"standard 52-card deck: {deck}")
     
-    hand_a = [(2, "s"), (4, "s"), (6, "s"), (5, "s"), (3, "s")]
-    hand_b = [(7, "c"), (7, "h"), (7, "d"), (7, "s"), (3, "c")]
-    hand_c = [(12, "d"), (12, "h"), (12, "s"), (9, "h"), (9, "d")]
-    hand_d = [(11, "s"), (7, "s"), (2, "s"), (8, "s"), (3, "s")]
-    
-    print(f"straight flush: {hand_a}, {straight_flush(hand_a)}")
-    print(f"four of a kind: {hand_b}, {four_of_a_kind(hand_b)}")
-    print(f"full house: {hand_c}, {full_house(hand_c)}")
-    print(f"flush: {hand_d}, {flush(hand_d)}")
-    print(f"straight: ")
-    print(f"three of a kind: ")
-    print(f"two pair: ")
-    print(f"pair: ")
+    hand_straight_flush = [(2, "s"), (4, "s"), (6, "s"), (5, "s"), (3, "s")]
+    hand_four_of_a_kind = [(7, "c"), (7, "h"), (7, "d"), (7, "s"), (3, "c")]
+    hand_full_house = [(12, "d"), (12, "h"), (12, "s"), (9, "h"), (9, "d")]
+    hand_flush = [(11, "s"), (7, "s"), (2, "s"), (8, "s"), (3, "s")]
+    hand_straight = [(10, "d"), (9, "s"), (8, "h"), (7, "c"), (6, "c")]
+    hand_three_of_a_kind = [(7, "d"), (7, "c"), (7, "s"), (4, "h"), (10, "c")]
+    hand_two_pair = [(2, "d"), (2, "s"), (9, "s"), (9, "h"), (11, "c")]
+    hand_pair = [(7, "d"), (7, "c"), (2, "s"), (14, "h"), (12, "h")]
+
+    print(f"straight flush: {hand_straight_flush}, {straight_flush(hand_straight_flush)}")
+    print(f"four of a kind: {hand_four_of_a_kind}, {four_of_a_kind(hand_four_of_a_kind)}")
+    print(f"full house: {hand_full_house}, {full_house(hand_full_house)}")
+    print(f"flush: {hand_flush}, {flush(hand_flush)}")
+    print(f"straight: {hand_straight}, {straight(hand_straight)}")
+    print(f"three of a kind: {hand_three_of_a_kind}, {three_of_a_kind(hand_three_of_a_kind)}")
+    print(f"two pair: {hand_two_pair}, {two_pair(hand_two_pair)}")
+    print(f"pair: {hand_pair}, {pair(hand_pair)}")
           
 if __name__ == "__main__":
     main()
