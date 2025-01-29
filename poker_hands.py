@@ -140,6 +140,7 @@ def main():
     deck = make_deck()
     print(f"standard 52-card deck: {deck}")
     
+    # test cases that should evaluate to True
     hand_straight_flush = [(2, "s"), (4, "s"), (6, "s"), (5, "s"), (3, "s")]
     hand_four_of_a_kind = [(7, "c"), (7, "h"), (7, "d"), (7, "s"), (3, "c")]
     hand_full_house = [(12, "d"), (12, "h"), (12, "s"), (9, "h"), (9, "d")]
@@ -148,7 +149,18 @@ def main():
     hand_three_of_a_kind = [(7, "d"), (7, "c"), (7, "s"), (4, "h"), (10, "c")]
     hand_two_pair = [(2, "d"), (2, "s"), (9, "s"), (9, "h"), (11, "c")]
     hand_pair = [(7, "d"), (7, "c"), (2, "s"), (14, "h"), (12, "h")]
+    
+    # test cases that should evaluate to False
+    hand_not_straight_flush = [(2, "s"), (4, "s"), (6, "s"), (5, "s"), (8, "s")]  # not consecutive
+    hand_not_four_of_a_kind = [(7, "c"), (7, "h"), (7, "d"), (3, "s"), (3, "c")]  # full house
+    hand_not_full_house = [(12, "d"), (12, "h"), (12, "s"), (9, "h"), (8, "d")]  # three of a kind + random cards
+    hand_not_flush = [(11, "s"), (7, "s"), (2, "s"), (8, "s"), (3, "h")]  # one card of a different suit
+    hand_not_straight = [(10, "d"), (9, "s"), (8, "h"), (7, "c"), (5, "c")]  # missing consecutive rank
+    hand_not_three_of_a_kind = [(7, "d"), (7, "c"), (4, "s"), (4, "h"), (10, "c")]  # two pair instead
+    hand_not_two_pair = [(2, "d"), (2, "s"), (9, "s"), (8, "h"), (11, "c")]  # only one pair
+    hand_not_pair = [(7, "d"), (6, "c"), (2, "s"), (14, "h"), (12, "h")]  # no pairs at all
 
+    print("——————— TRUE TEST CASES (should return True) ———————")
     print(f"straight flush: {hand_straight_flush}, {straight_flush(hand_straight_flush)}")
     print(f"four of a kind: {hand_four_of_a_kind}, {four_of_a_kind(hand_four_of_a_kind)}")
     print(f"full house: {hand_full_house}, {full_house(hand_full_house)}")
@@ -158,6 +170,16 @@ def main():
     print(f"two pair: {hand_two_pair}, {two_pair(hand_two_pair)}")
     print(f"pair: {hand_pair}, {pair(hand_pair)}")
           
+    print("——————— FALSE TEST CASES (should return False) ———————")
+    print(f"not straight flush: {hand_not_straight_flush}, {straight_flush(hand_not_straight_flush)}")
+    print(f"not four of a kind: {hand_not_four_of_a_kind}, {four_of_a_kind(hand_not_four_of_a_kind)}")
+    print(f"not full house: {hand_not_full_house}, {full_house(hand_not_full_house)}")
+    print(f"not flush: {hand_not_flush}, {flush(hand_not_flush)}")
+    print(f"not straight: {hand_not_straight}, {straight(hand_not_straight)}")
+    print(f"not three of a kind: {hand_not_three_of_a_kind}, {three_of_a_kind(hand_not_three_of_a_kind)}")
+    print(f"not two pair: {hand_not_two_pair}, {two_pair(hand_not_two_pair)}")
+    print(f"not pair: {hand_not_pair}, {pair(hand_not_pair)}")
+
 if __name__ == "__main__":
     main()
 
