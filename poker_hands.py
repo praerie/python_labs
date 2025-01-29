@@ -126,7 +126,15 @@ def pair(cards):
     if not count_cards(cards):
         return False
     
-    pass
+    # create a dictionary to store counts of each rank
+    rank_counts = {}
+    
+    # count occurrences of each rank using .get(key, default)
+    for rank, _ in cards:
+        rank_counts[rank] = rank_counts.get(rank, 0) + 1
+        
+    # return True if hand contains exactly one pair of the same rank and two unmatched cards
+    return sorted(rank_counts.values()) == [1, 1, 1, 2]
           
 def main():
     deck = make_deck()
