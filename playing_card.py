@@ -9,9 +9,11 @@
 # Test your card class with a program that prints out n randomly generated cards
 # and the associated Blackjack value where n is a number supplied by the user.
 
+import random
+
 class PlayingCard: 
-    SUITS = ["d", "c", "h", "s"]
-    RANKS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+    SUITS = {"d": "Diamonds", "c": "Clubs", "h": "Hearts", "s": "Spades"}
+    RANKS = {1: "Ace", 11: "Jack", 12: "Queen", 13: "King"}
 
     def __init__(self, rank, suit):
         self.rank = rank
@@ -31,39 +33,38 @@ class PlayingCard:
         return self.rank # number cards keep their value
     
     def __str__(self):
-        suit_name = ""
-        rank_name = ""
-
-        if self.suit == "d":
-            suit_name = "Diamonds"
-        elif self.suit == "c":
-            suit_name = "Clubs"
-        elif self.suit == "h":
-            suit_name = "Hearts"
-        elif self.suit == "s":
-            suit_name = "Spades"
-
-        if self.rank == 11:
-            rank_name = "Jack"
-        elif self.rank == 12:
-            rank_name = "Queen"
-        elif self.rank == 13:
-            rank_name = "King"
-        elif self.rank == 1:
-            rank_name = "Ace"
-        else:
-            rank_name = self.rank
-        
+        rank_name = self.RANKS.get(self.rank, self.rank) # assigns "Ace" or face card name, otherwise rank number
+        suit_name = self.SUITS[self.suit] # retrieves full name from SUITS dictionary
         return f"{rank_name} of {suit_name}"
 
     @classmethod
     def create_deck(cls):
         """Creates a standard deck of 52 playing cards."""
-        return [cls(rank, suit) for suit in cls.SUITS for rank in cls.RANKS]
+        return [cls(rank, suit) for suit in cls.SUITS for rank in range(1, 14)]
     
 def main():
     deck = PlayingCard.create_deck()
-    print(deck[2])
+    
+    print("Initializing card-drawing protocol... Shuffling... Dealing... Just kidding, I pick them randomly. How many?")
+    
+    while True:
+        try:
+            n_cards = int(input("# of cards to display (1-52): "))
+
+            if n_cards == 0:
+                print("Ah, the mystical art of drawing zero cards! A bold choice... but rather uneventful.")
+            elif n_cards < 0:
+                print("Ah, attempting to summon negative cards, are we? Alas, they exist only in the void and hold no Blackjack value.")
+            elif n_cards > 52:
+                print("My human maker, bound by the laws of earthly decks, has granted me only 52 cards. No more, no less!")
+            else:
+                random_selection = random.sample(deck, n_cards) # randomly select n cards from deck
+                for card in random_selection:
+                    print(f"{card} is worth {card.blackjack_value()} in Blackjack.")
+                break # exit after displaying n random cards 
+        except ValueError:
+            print("ERROR: Anomaly detected. Resetting card-drawing matrix... Please enter a number between 1 and 52.")
+
 
 if __name__ == "__main__":
     main()
