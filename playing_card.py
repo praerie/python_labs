@@ -45,7 +45,7 @@ class PlayingCard:
 def main():
     deck = PlayingCard.create_deck()
     
-    print("Initializing card-drawing protocol... Shuffling... Dealing... Just kidding, I pick them randomly. How many?")
+    print("Engaging quantum card entanglement... Shuffle matrix loaded... Randomizer activated.")
     
     while True:
         try:
