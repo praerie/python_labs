@@ -24,7 +24,11 @@ class PlayingCard:
         return self.suit
     
     def blackjack_value(self):
-        pass
+        if self.rank == 1:
+            return 1 # ace is worth 1 in blackjack
+        elif self.rank in {11, 12, 13}:
+            return 10 # face cards are worth 10 (jack, queen, king)
+        return self.rank # number cards keep their value
     
     def __str__(self):
         suit_name = ""
