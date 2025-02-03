@@ -54,7 +54,8 @@ def main():
             if n_cards == 0:
                 print("Ah, the mystical art of drawing zero cards! A bold choice... but rather uneventful.")
             elif n_cards < 0:
-                print("Ah, attempting to summon negative cards, are we? Alas, they exist only in the void and hold no Blackjack value.")
+                print("Ah, attempting to summon negative cards, are we? "\
+                      "Alas, they exist only in the void and hold no Blackjack value.")
             elif n_cards > 52:
                 print("My human maker, bound by the laws of earthly decks, has granted me only 52 cards. No more, no less!")
             else:
