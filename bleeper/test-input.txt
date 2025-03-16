@@ -1,0 +1,7 @@
+Beep boop, this is a test!
+Some four-letter words: leaf, warm, nook, safe, cozy
+What if a four-letter word is at the start of a sentence or is followed by punctuation? Love is all you need.
+A four-letter contraction like "don't" should be censored.
+Words in quotes, like "boat", should be censored too.
+Short (a, an) and long (exceedingly) words should remain unchanged.
+Numbers like 1234 and mixed words like a1b2 should not be censored.

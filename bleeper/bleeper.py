@@ -59,7 +59,7 @@ def censor_four_letter_words(input_filename, output_filename):
         outfile.write("\n".join(censored_lines))
 
 
-input_file = 'test-input.txt'
-output_file = 'censored_output.txt'
+input_file = 'bleeper/test-input.txt'
+output_file = 'bleeper/censored_output.txt'
 censor_four_letter_words(input_file, output_file)
 print(f'Censored file saved as {output_file}')
