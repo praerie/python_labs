@@ -14,11 +14,11 @@ def main():
 
     # Difference (emails unique to list 1)
     unique_to_list1 = emails1.difference(emails2)
-    print(f"Difference: {len(unique_to_list1)} email addresses unique to list 1")
+    print(f"Difference #1: {len(unique_to_list1)} email addresses unique to list 1")
 
     # Difference (emails unique to list 2)
     unique_to_list2 = emails2.difference(emails1)
-    print(f"Difference: {len(unique_to_list2)} email addresses unique to list 2")
+    print(f"Difference #2: {len(unique_to_list2)} email addresses unique to list 2")
 
     # Symmetric Difference
     emails_only_one = emails1.symmetric_difference(emails2)
@@ -36,11 +36,11 @@ def main():
 
     # Difference (IPs unique to log 1)
     unique_to_log1 = ips1.difference(ips2)
-    print(f"Difference: {len(unique_to_log1)} IP addresses unique to log 1")
+    print(f"Difference #1: {len(unique_to_log1)} IP addresses unique to log 1")
 
     # Difference (IPs unique to log 2)
     unique_to_log2 = ips2.difference(ips1)
-    print(f"Difference: {len(unique_to_log2)} IP addresses unique to log 2")
+    print(f"Difference #2: {len(unique_to_log2)} IP addresses unique to log 2")
 
     # Symmetric Difference
     ips_only_one = ips1.symmetric_difference(ips2)
